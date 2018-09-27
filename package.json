@@ -1,0 +1,69 @@
+{
+  "name": "@folio/audit",
+  "version": "0.1.0",
+  "description": "audting logs",
+  "main": "src/index.js",
+  "repository": "",
+  "license": "Apache-2.0",
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "scripts": {
+    "start": "stripes serve",
+    "build": "stripes build --output ./output",
+    "test": "stripes test nightmare --run demo",
+    "lint": "eslint src"
+  },
+  "devDependencies": {
+    "@folio/eslint-config-stripes": "^3.2.1",
+    "babel-eslint": "^9.0.0",
+    "eslint": "^5.5.0",
+    "chai": "^4.1.2",
+    "@folio/stripes-cli": "^1.2.0"
+  },
+  "dependencies": {
+    "@folio/stripes-components": "^3.1.1",
+    "@folio/stripes-core": "^2.11.0",
+    "@folio/stripes-smart-components": "^1.8.3",
+    "prop-types": "^15.6.0",
+    "react-highlight.js": "^1.0.7",
+    "react-intl": "^2.3.0",
+    "lodash": "^4.17.4",
+    "react-router-dom": "^4.1.1"
+  },
+  "peerDependencies": {
+    "@folio/stripes-connect": "^3.2.0",
+    "react": "*"
+  },
+  "stripes": {
+    "type": "app",
+    "displayName": "Audit",
+    "route": "/audit",
+    "home": "/audit?filters=&sort=timestamp/sort.descending",
+    "hasSettings": false,
+    "okapiInterfaces": {},
+    "queryResource": "query",
+    "icons": [
+      {
+        "name": "app",
+        "alt": "View folio audit logs",
+        "title": "Audit"
+      }
+    ],
+    "permissionSets": [
+      {
+        "permissionName": "module.audit.enabled",
+        "displayName": "UI: ui audit module is enabled",
+        "visible": true
+      },
+      {
+        "permissionName": "settings.audit.enabled",
+        "displayName": "Settings (audit): display list of settings pages",
+        "subPermissions": [
+          "settings.enabled"
+        ],
+        "visible": true
+      }
+    ]
+  }
+}
