@@ -125,7 +125,7 @@ class Search extends React.Component {
     const { onSelectRow, browseOnly } = this.props;
     const resultsFormatter = {
       user: x => (x.user || []),
-      target: x => (x.target_id || []),
+      target_id: x => (x.target_id || []),
       target_type: x => (x.target_type || []),
       timestamp: x => (x.timestamp || [])
     };
@@ -142,8 +142,8 @@ class Search extends React.Component {
       initialResultCount={30}
       resultCountIncrement={30}
       viewRecordComponent={ViewAuditData}
-      visibleColumns={['timestamp', 'user', 'target']}
-      columnWidths={{ timestamp: '30%', user: '30%', target: '40%' }}
+      visibleColumns={['timestamp', 'target_id', 'target_type', 'user']}
+      columnWidths={{ timestamp: '30%', target_id: '30%', target_type: '30%', user: '30%' }}
       resultsFormatter={resultsFormatter}
       viewRecordPerms="audit.item.get"
       disableRecordCreation

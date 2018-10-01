@@ -44,7 +44,6 @@ module.exports.test = (uiTestCtx) => {
         nightmare
           .wait('#clickable-audit-module')
           .click('#clickable-audit-module')
-          .click('#clickable-reset-all')
           .wait('#clickable-filter-method-POST')
           .click('#clickable-filter-method-POST')
           .wait('#clickable-list-column-timestamp')
@@ -62,7 +61,7 @@ module.exports.test = (uiTestCtx) => {
           .wait('div[class*="noResultsMessage"]')
           .evaluate(() => document.querySelector('div[class*="noResultsMessage"]').innerText.trim())
           .then((result) => {
-            expect(result).to.equal('No results found. Please check your filters.');
+            expect(result).to.equal(`No results found for "${config.username}". Please check your spelling and filters.`);
             done();
           })
           .catch(done);
