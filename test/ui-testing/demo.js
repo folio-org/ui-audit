@@ -25,7 +25,7 @@ module.exports.test = (uiTestCtx) => {
           .insert('#input-audit-search', config.username)
           .wait('#clickable-list-column-timestamp')
           .click('#paneHeaderpane-results-subtitle')
-          .evaluate(() => { return document.querySelector('#list-audit') ? true : false })
+          .evaluate(() => { return document.querySelector('#list-audit') ? true : false; }) /* eslint no-unneeded-ternary : 0 */ //
           .then((result) => {
             if (result) {
               nightmare
