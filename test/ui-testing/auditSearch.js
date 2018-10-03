@@ -30,9 +30,21 @@ module.exports.test = (uiTestCtx) => {
             if (result) {
               nightmare
                 .wait('#list-audit div[class*=scrollable] div div div')
-                .click('#list-audit div[class*=scrollable] div div div a')
-                .click('#audit-module-display div section:nth-child(4) :last-child')
-                .then(done)
+                .click('#list-audit div[class*=scrollable] a')
+                .wait('#audit-module-display div div+section+section+section span[class*=hljs-string]')
+                .evaluate(() => {
+                  const UUIDregexp = /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/gi;
+                  const auditID = document.querySelector('#list-audit div[class*=scrollable] div div div a').getAttribute('href').match(UUIDregexp);
+                  const detailViewID = document.querySelector('#audit-module-display div div+section+section+section').innerText.trim().match(UUIDregexp);
+                  return { auditID, detailViewID };
+                })
+                .then((ids) => {
+                  expect(ids.auditID[0]).to.equal(ids.detailViewID[0]);
+                  nightmare
+                    .click('#audit-module-display div section:nth-child(4) :last-child')
+                    .then(done)
+                    .catch(done);
+                })
                 .catch(done);
             }
           })
