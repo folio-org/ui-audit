@@ -6,7 +6,7 @@ This software is distributed under the terms of the Apache License, Version 2.0.
 
 ## Introduction
 
-Congratulations on creating a new Stripes UI app module!  Follow the instructions below to run ui-audit and start your development.
+Stripes UI module- Audit app  visually conveys the idea of examining past activity, organized by different points of view: user; resource; circulation etc
 
 ## Prerequisites
 
@@ -59,11 +59,3 @@ or
 
 stripes test --run demo --show
 ```
-
-## What to do next?
-
-Now that your new app is running, search the code for "`stripes-new-app`" to find comments and subbed placeholders that may need your attention.
-
-Read the [Stripes Module Developer's Guide](https://github.com/folio-org/stripes-core/blob/master/doc/dev-guide.md).
-
-Update this README with information about your app.
