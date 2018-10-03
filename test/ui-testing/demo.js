@@ -6,10 +6,10 @@ module.exports.test = (uiTestCtx) => {
   describe('Module test: ui-audit:', function startTest() {
     const { config, helpers: { login, logout } } = uiTestCtx;
     const nightmare = new Nightmare(config.nightmare);
-
     this.timeout(Number(config.test_timeout));
 
     describe('Login > navigate to app > verify message > logout', () => {
+      const testRunYear = new Date().getFullYear();
       before((done) => {
         login(nightmare, config, done);
       });
@@ -25,7 +25,7 @@ module.exports.test = (uiTestCtx) => {
           .insert('#input-audit-search', config.username)
           .wait('#clickable-list-column-timestamp')
           .click('#paneHeaderpane-results-subtitle')
-          .evaluate(() => { return document.querySelector('#list-audit') ? true : false; }) /* eslint no-unneeded-ternary : 0 */ //
+          .evaluate(() => { return document.querySelector('#list-audit') ? 1 : 0; })
           .then((result) => {
             if (result) {
               nightmare
@@ -74,7 +74,7 @@ module.exports.test = (uiTestCtx) => {
           .wait('#input-audit-search-qindex')
           .click('#input-audit-search-qindex')
           .type('#input-audit-search-qindex', 'time')
-          .insert('#input-audit-search', '2018')
+          .insert('#input-audit-search', testRunYear)
           .wait('#clickable-list-column-timestamp')
           .then(done)
           .catch(done);
