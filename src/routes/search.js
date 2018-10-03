@@ -1,5 +1,5 @@
 import React from 'react';
-import _ from 'lodash';
+import { get } from 'lodash';
 import PropTypes from 'prop-types';
 import makeQueryFunction from '@folio/stripes-components/util/makeQueryFunction';
 import SearchAndSort from '@folio/stripes-smart-components/lib/SearchAndSort';
@@ -63,9 +63,6 @@ class Search extends React.Component {
         query: PropTypes.string,
       }),
     }),
-    locations: PropTypes.shape({
-      records: PropTypes.arrayOf(PropTypes.object),
-    }),
     match: PropTypes.shape({
       path: PropTypes.string.isRequired,
     }).isRequired,
@@ -74,7 +71,6 @@ class Search extends React.Component {
         update: PropTypes.func.isRequired,
       }),
     }),
-    onSelectRow: PropTypes.func,
     stripes: PropTypes.shape({
       logger: PropTypes.shape({
         log: PropTypes.func.isRequired,
@@ -104,7 +100,13 @@ class Search extends React.Component {
           query: makeQueryFunction(
             'cql.allRecords=1',
             'target_id="%{query.query}*"',
-            { id: 'target_id' },
+            {
+              'id': 'target_id',
+              'Timestamp': 'timestamp',
+              'Target Id': 'target_id',
+              'Target Type': 'target_type',
+              'User': 'user',
+            },
             filterConfig,
             false,
           ),
@@ -122,18 +124,18 @@ class Search extends React.Component {
   }
 
   render() {
-    const { onSelectRow, browseOnly } = this.props;
+    const { browseOnly } = this.props;
     const resultsFormatter = {
-      user: x => (x.user || []),
-      target: x => (x.target_id || []),
-      target_type: x => (x.target_type || []),
-      timestamp: x => (x.timestamp || [])
+      'User': x => (x.user || []),
+      'Target Id': x => (x.target_id || []),
+      'Target Type': x => (x.target_type || []),
+      'Timestamp': x => (x.timestamp || [])
     };
 
     return (<SearchAndSort
       packageInfo={packageInfo}
       objectName="audit"
-      selectedIndex={_.get(this.props.resources.query, 'qindex')}
+      selectedIndex={get(this.props.resources.query, 'qindex')}
       searchableIndexes={searchableIndexes}
       searchableIndexesPlaceholder={null}
       onChangeIndex={this.onChangeIndex}
@@ -142,8 +144,8 @@ class Search extends React.Component {
       initialResultCount={30}
       resultCountIncrement={30}
       viewRecordComponent={ViewAuditData}
-      visibleColumns={['timestamp', 'user', 'target']}
-      columnWidths={{ timestamp: '30%', user: '30%', target: '40%' }}
+      visibleColumns={['Timestamp', 'Target Id', 'Target Type', 'User']}
+      columnWidths={{ 'timestamp': '30%', 'target id': '30%', 'target type': '30%', 'user': '30%' }}
       resultsFormatter={resultsFormatter}
       viewRecordPerms="audit.item.get"
       disableRecordCreation
@@ -152,7 +154,6 @@ class Search extends React.Component {
       path={`${this.props.match.path}/(view)/:id`}
       notLoadedMessage="Enter search query to show results"
       browseOnly={browseOnly}
-      onSelectRow={onSelectRow}
     />);
   }
 }

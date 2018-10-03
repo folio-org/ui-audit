@@ -1,5 +1,5 @@
 # Change history for ui-audit
 
-## 0.1.0 (IN PROGRESS)
+## 1.0.0 (IN PROGRESS)
 
-* New app created with stripes-cli
+* Very simple audit data capture module

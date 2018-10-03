@@ -1,6 +1,6 @@
 {
   "name": "@folio/audit",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "audting logs",
   "main": "src/index.js",
   "repository": "",
@@ -11,7 +11,7 @@
   "scripts": {
     "start": "stripes serve",
     "build": "stripes build --output ./output",
-    "test": "stripes test nightmare --run demo",
+    "test": "stripes test nightmare --run",
     "lint": "eslint src"
   },
   "devDependencies": {
@@ -54,14 +54,6 @@
       {
         "permissionName": "module.audit.enabled",
         "displayName": "UI: ui audit module is enabled",
-        "visible": true
-      },
-      {
-        "permissionName": "settings.audit.enabled",
-        "displayName": "Settings (audit): display list of settings pages",
-        "subPermissions": [
-          "settings.enabled"
-        ],
         "visible": true
       }
     ]

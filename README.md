@@ -6,7 +6,7 @@ This software is distributed under the terms of the Apache License, Version 2.0.
 
 ## Introduction
 
-Congratulations on creating a new Stripes UI app module!  Follow the instructions below to run ui-audit and start your development.
+Stripes UI module- Audit app  visually conveys the idea of examining past activity, organized by different points of view: user; resource; circulation etc
 
 ## Prerequisites
 
@@ -16,30 +16,46 @@ In order to view and log into the platform being served up, a suitable Okapi bac
 
 Run the following from the ui-audit directory to serve your new app using a development server:
 ```
+yarn start
+
+or
+
 stripes serve
 ```
 
 Note: When serving up a newly created app that does not have its own backend permissions established, pass the `--hasAllPerms` option to display the app in the UI navigation. For example:
 ```
+yarn start --hasAllPerms
+
+or
+
 stripes serve --hasAllPerms
 ```
 
 To specify your own tenant ID or to use an Okapi instance other than http://localhost:9130, pass the `--okapi` and `--tenant` options.
 ```
+yarn start --okapi http://my-okapi.example.com:9130 --tenant my-tenant-id
+
+or
+
 stripes serve --okapi http://my-okapi.example.com:9130 --tenant my-tenant-id
 ```
 
 ## Run the tests
 
+Run the included UI test `demo` with the following command without electron:
+```
+yarn test
+
+or
+
+stripes test --run demo
+```
 Run the included UI test `demo` with the following command:
 ```
+yarn test --show
+
+or
+
 stripes test --run demo --show
 ```
-
-## What to do next?
-
-Now that your new app is running, search the code for "`stripes-new-app`" to find comments and subbed placeholders that may need your attention.
-
-Read the [Stripes Module Developer's Guide](https://github.com/folio-org/stripes-core/blob/master/doc/dev-guide.md).
-
-Update this README with information about your app.

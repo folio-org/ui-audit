@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import Switch from 'react-router-dom/Switch';
 import Route from 'react-router-dom/Route';
 import Search from './routes/search';
-import Settings from './settings';
 
 const addScript = () => {
   if (!document.getElementById('hightlightJS')) {
@@ -31,10 +30,6 @@ class Audit extends React.Component {
   }
 
   render() {
-    if (this.props.showSettings) {
-      return <Settings {...this.props} />;
-    }
-
     return (
       <Switch>
         <Route path={`${this.props.match.path}`} render={() => <this.connectedApp {...this.props} />} />

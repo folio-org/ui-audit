@@ -76,13 +76,6 @@ ViewAuditData.propTypes = {
       id: PropTypes.string,
     }),
   }),
-  location: PropTypes.shape({
-    pathname: PropTypes.string.isRequired,
-    search: PropTypes.string,
-  }).isRequired,
-  mutator: PropTypes.shape({
-    query: PropTypes.object.isRequired,
-  }),
   onClose: PropTypes.func,
   paneWidth: PropTypes.string.isRequired
 };
