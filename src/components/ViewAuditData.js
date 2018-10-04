@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Pane from '@folio/stripes-components/lib/Pane';
+import { Pane, Icon } from '@folio/stripes/components';
 import Highlight from 'react-highlight.js';
-import Icon from '@folio/stripes-components/lib/Icon';
 
 class ViewAuditData extends React.Component {
   static manifest = Object.freeze({
