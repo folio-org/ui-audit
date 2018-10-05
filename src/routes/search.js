@@ -1,7 +1,6 @@
 import React from 'react';
 import { get } from 'lodash';
 import PropTypes from 'prop-types';
-import { injectIntl } from 'react-intl';
 import { makeQueryFunction, SearchAndSort } from '@folio/stripes/smart-components';
 import ViewAuditData from '../components/ViewAuditData';
 import packageInfo from '../../package';
@@ -158,4 +157,4 @@ class Search extends React.Component {
   }
 }
 
-export default injectIntl(Search);
+export default Search;
