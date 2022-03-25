@@ -12,6 +12,7 @@
     "start": "stripes serve",
     "build": "stripes build --output ./output",
     "test": "stripes test nightmare --run",
+    "build-mod-descriptor": "stripes mod descriptor --full --strict | jq '.[]' > module-descriptor.json ",
     "lint": "eslint src"
   },
   "devDependencies": {
