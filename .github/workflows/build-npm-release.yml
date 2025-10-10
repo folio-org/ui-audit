@@ -202,8 +202,6 @@ jobs:
             -Dsonar.language=js
             -Dsonar.javascript.lcov.reportPaths=${{ env.SQ_LCOV_REPORT }}
             -Dsonar.exclusions=${{ env.SQ_EXCLUSIONS }}
-            -Dsonar.branch.name=${{ github.ref_name }}
-            -Dsonar.branch.target=${{ env.DEFAULT_BRANCH }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
