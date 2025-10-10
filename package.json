@@ -5,6 +5,9 @@
   "main": "src/index.js",
   "repository": "",
   "license": "Apache-2.0",
+  "engines": {
+    "node": "^16.0.0 || >=18.0.0"
+  },
   "scripts": {
     "start": "stripes serve",
     "build": "stripes build --output ./output",
