@@ -19,7 +19,7 @@
     "@folio/eslint-config-stripes": "^8.0.1",
     "babel-eslint": "^9.0.0",
     "eslint": "^5.5.0",
-    "@folio/stripes": "^1.0.0",
+    "@folio/stripes": "^10.0.15",
     "@folio/stripes-cli": "^1.5.0",
     "chai": "^4.1.2",
     "react": "^16.5.0",
@@ -35,7 +35,7 @@
     "react-router-dom": "^4.1.1"
   },
   "peerDependencies": {
-    "@folio/stripes": "^1.0.0",
+    "@folio/stripes": "^10.0.15",
     "react": "*"
   },
   "stripes": {
