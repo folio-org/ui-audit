@@ -4,6 +4,10 @@ Copyright (C) 2018 The Open Library Foundation
 
 This software is distributed under the terms of the Apache License, Version 2.0. See the file "[LICENSE](LICENSE)" for more information.
 
+## DEPRECATED
+
+This repository is not maintained and is not used.
+
 ## Introduction
 
 Stripes UI module- Audit app  visually conveys the idea of examining past activity, organized by different points of view: user; resource; circulation etc
